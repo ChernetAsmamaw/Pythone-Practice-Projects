@@ -1,0 +1,26 @@
+class Car:
+    def __init__(self, make="unknown", model="unknown", color="unknown", year="unknown", price="unknown"):
+        self.make = make 
+        self.model = model 
+        self.color = color 
+        self.year = year 
+        self._price = price
+
+    @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, p):
+        if (p <= 0):
+            raise ValueError("Price is less than or equal to zero!!!")
+        print("Setter for price is called")
+        self._price = p
+    def __str__(self):
+        return 'car:- make=' +self.make + ', model=' +self.model + ', color=' + self.color +\
+            ', year=' + str(self.year) + ', price=' + str(self.price)
+
+
+car = Car()
+car = Car("Bugati", "B45", "BLACK", 2024, 208884)
+print(car)
